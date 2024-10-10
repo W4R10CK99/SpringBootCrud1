@@ -2,6 +2,7 @@ package com.ram.apiCreation.Service;
 
 import com.ram.apiCreation.Repository.JournalEntryRepository;
 import com.ram.apiCreation.entity.JournalEntry;
+import org.bson.types.ObjectId;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -24,11 +25,17 @@ public class JournalEntryService {
         return journalEntryRepository.findAll();
     }
 
-    public Optional<JournalEntry> getEntrybyId(String ID){
+    public Optional<JournalEntry> getEntrybyId(ObjectId ID){
         return journalEntryRepository.findById(ID);
 
     }
 
+
+
+    public void deleteById(ObjectId Id){
+        journalEntryRepository.deleteById(Id);
+
+    }
 
 
 }
